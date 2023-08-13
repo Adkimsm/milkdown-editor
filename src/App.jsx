@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css'
-import { Editor, rootCtx } from '@milkdown/core';
+import { defaultValueCtx, Editor, rootCtx } from '@milkdown/core';
 import { nord } from '@milkdown/theme-nord';
 import { Milkdown, MilkdownProvider, useEditor } from '@milkdown/react';
 import { commonmark } from '@milkdown/preset-commonmark';
@@ -10,12 +10,22 @@ import { prism } from '@milkdown/plugin-prism';
 import { math } from '@milkdown/plugin-math';
 import { emoji } from '@milkdown/plugin-emoji';
 
+import '@milkdown/theme-nord/style.css'
+
+const markdown =
+`# Milkdown React Commonmark
+
+> You're scared of a world where you're needed.
+
+This is a demo for using Milkdown with **React**.`
+
 const MilkdownEditor = () => {
     const { get } = useEditor((root) =>
       Editor.make()
         .config(nord)
         .config((ctx) => {
           ctx.set(rootCtx, root);
+          ctx.set(defaultValueCtx, markdown)
         })
         .use(commonmark)
         .use(gfm)
