@@ -292,6 +292,7 @@
    left: 0;
    box-sizing: border-box;
    padding: 2rem;
+   min-height: 100vh
  }
  
  blockquote {
