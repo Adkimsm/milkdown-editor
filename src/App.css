@@ -343,6 +343,9 @@ blockquote {
   .btn_lb {
     color: #fff !important;
   }
+  .drawer {
+    background-color: #242424 !important;
+  }
 }
 
 .cm-editor,
