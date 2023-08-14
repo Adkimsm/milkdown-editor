@@ -34,6 +34,8 @@ sudo pacman -Syyu
 
 `;
 
+const toBeSupported = () => alert("Because showOpenFilePicker method has not supported on mobile phones, we are searching for better solution instead of File System Access API. Maybe you can only use it after browser on mobile phones support it.")
+
 const store = proxy({
   value: markdownc
 })
@@ -85,8 +87,8 @@ export const MilkdownEditorWrapperC = () => {
       >
         <h2>Milkdown Editor</h2>
         <button onClick={() => setIfCode(!ifCode)}>{ifCode ? 'Text View' : 'Code View'}</button>
-        <button>Open A File</button>
-        <button>Save</button>
+        <button onClick={() =>toBeSupported()}>Open A File</button>
+        <button onClick={() =>toBeSupported()}>Save</button>
       </Drawer>
       <MilkdownEditor />
       <button className='btn_lb' onClick={() => {
