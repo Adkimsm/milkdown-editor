@@ -4285,6 +4285,7 @@ __metadata:
     react: ^18.2.0
     react-dom: ^18.2.0
     react-icons: ^4.10.1
+    react-modern-drawer: ^1.2.2
     tailwindcss: ^3.3.3
     valtio: ^1.11.2
     vite: ^4.4.5
@@ -5087,6 +5088,15 @@ __metadata:
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: f7a19ac3496de32ca9ae12aa030f00f14a3d45374f1ceca0af707c831b2a6098ef0d6bdae51bd437b0a306d7f01d4677fcc8de7c0d331eb47ad0f46130e53c5f
+  languageName: node
+  linkType: hard
+
+"react-modern-drawer@npm:^1.2.2":
+  version: 1.2.2
+  resolution: "react-modern-drawer@npm:1.2.2"
+  peerDependencies:
+    react: ">16.0.0"
+  checksum: 379ad55a02b6c6d647448e5670ae99fc3d7bff70c43a07a978ac0ac18dbd40b055c2ca8f764627f4252451fa3d2125b2d90271eaaaf6a0048baa2ec6e577b756
   languageName: node
   linkType: hard
 

@@ -353,3 +353,25 @@ blockquote {
   height: 100vh;
   font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace !important;
 }
+
+.drawer {
+  border: 1px solid transparent;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  text-align: center;
+}
+
+.drawer button {
+  width: 100%;
+  outline: transparent;
+  border: none;
+  padding: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  background-color: transparent;
+  transition: all .2s;
+}
+
+.drawer button:hover {
+  background-color: rgba(0, 0, 0, 0.04)
+}

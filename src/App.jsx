@@ -10,13 +10,15 @@ import { prism } from '@milkdown/plugin-prism';
 import { math } from '@milkdown/plugin-math';
 import { emoji } from '@milkdown/plugin-emoji';
 import { listener, listenerCtx } from "@milkdown/plugin-listener";
-import { RxCode } from "react-icons/rx";
+import { RxHamburgerMenu } from "react-icons/rx";
 import CodeMirror from '@uiw/react-codemirror';
 import { markdown, markdownLanguage } from '@codemirror/lang-markdown';
 import { languages } from '@codemirror/language-data';
 import { vscodeDark } from '@uiw/codemirror-theme-vscode'
 import { proxy } from 'valtio'
 import { replaceAll } from "@milkdown/utils";
+import Drawer from 'react-modern-drawer'
+import 'react-modern-drawer/dist/index.css'
 
 import '@milkdown/theme-nord/style.css';
 
@@ -68,21 +70,38 @@ const MilkdownEditor = () => {
 };
 
 export const MilkdownEditorWrapperC = () => {
+  const [isOpen, setIsOpen] = useState(false)
+  const toggleDrawer = () => {
+    setIsOpen((prevState) => !prevState)
+  }
   let [ifCode, setIfCode] = useState(false)
   return (
     <MilkdownProvider>
+      <Drawer
+        open={isOpen}
+        onClose={toggleDrawer}
+        direction='left'
+        className='drawer'
+      >
+        <h2>Milkdown Editor</h2>
+        <button onClick={() => setIfCode(!ifCode)}>{ifCode ? 'Text View' : 'Code View'}</button>
+        <button>Open A File</button>
+        <button>Save</button>
+      </Drawer>
       <MilkdownEditor />
-      <button className='btn_lb' onClick={() => setIfCode(!ifCode)} style={{ color: ifCode ? '#fff' : '#000' }}>
-        <RxCode />
+      <button className='btn_lb' onClick={() => {
+        toggleDrawer()
+      }} style={{ color: ifCode ? '#fff' : '#000' }}>
+        <RxHamburgerMenu />
       </button>
       <div className='code' style={{ display: ifCode ? 'block' : 'none' }}>
-        <CodeMirror 
-        value={store.value} 
-        theme={vscodeDark} 
-        extensions={[markdown({ base: markdownLanguage, codeLanguages: languages })]} 
-        onChange={(value) => {
-          store.value = value
-        }} />
+        <CodeMirror
+          value={store.value}
+          theme={vscodeDark}
+          extensions={[markdown({ base: markdownLanguage, codeLanguages: languages })]}
+          onChange={(value) => {
+            store.value = value
+          }} />
       </div>
     </MilkdownProvider>
   );
